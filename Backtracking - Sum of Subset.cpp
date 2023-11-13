@@ -3,7 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int a[3];
+int a[4];
 int n,ts;
 vector <int> b;
 
@@ -13,14 +13,25 @@ void back_track(int i,int s,vector<int> b)
     {
         for(int j=0; j<b.size(); j++)
         cout<<b[j]<<" ";
+        cout<<endl;
+
+        while (!b.empty())
+        {
+            b.pop_back();
+        }
     }
 
-    if(i==n ) return ;
+    if (i == n)
+        return;
 
-    back_track(i+1 , s , b );
-    b.push_back(a[i]);
-    back_track(i+1 , s-a[i] , b );
+    if (a[i] <= s)
+    {
+        b.push_back(a[i]);
+        back_track(i + 1, s - a[i], b);
+        b.pop_back();
+    }
 
+    back_track(i + 1, s, b);
 }
 
 
