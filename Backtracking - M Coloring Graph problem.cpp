@@ -31,7 +31,7 @@ bool graph_coloring(int m,int v)
 
                     if (graph_coloring(m, v + 1) == true) return true;  // recur to assign colors to rest of the vertices
 
-                    color[v] = 0;   // If assigning color c doesn't lead to a solution then remove it
+                    color[v] = -1;   // If assigning color c doesn't lead to a solution then remove it
                 }
         }
 
